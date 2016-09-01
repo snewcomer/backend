@@ -1,4 +1,4 @@
-FROM backend/base
+FROM snewcomer/backend-base:latest
 MAINTAINER Scott Newcomer
 
 # Copy application artifacts

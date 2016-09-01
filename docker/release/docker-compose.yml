@@ -10,7 +10,7 @@ services:
       context: ../../
       dockerfile: docker/release/Dockerfile
     links:
-      - db
+      - postgres
     environment:
       DJANGO_SETTINGS_MODULE: backend.settings.release
       BSRS_DB_CI_USER: dev
@@ -38,18 +38,20 @@ services:
     volumes:
       - webroot:/var/www/backend
 
-  db:
-    image: postgres
-    expose:
-      - "5432"
+  postgres:
+    build:
+      context: ../../
+      dockerfile: Dockerfile-psql
     env_file:
       - ../../env/app.${APP_ENV}.env
+    ports:
+      - "5433:5432"
 
   agent:
     image: snewcomer/ansible
     links:
-      - db
+      - postgres
     environment:
-      PROBE_HOST: "db"
-      PROBE_PORT: "5432"
+      PROBE_HOST: "postgres"
+      PROBE_PORT: "5433"
     command: ["probe.yml"]

@@ -15,11 +15,11 @@ services:
       - cache:/cache
       - build:/build
     links:
-      - db
+      - postgres
     environment:
       DJANGO_SETTINGS_MODULE: backend.settings.base
-      BSRS_DB_CI_USER: dev
-      BSRS_DB_CI_PASSWORD: puekey
+      BSRS_DB_CI_USER: bsdev
+      BSRS_DB_CI_PASSWORD: tango
       TEST_OUTPUT_DIR: /reports
       DATABASE_HOST: postgres
 
@@ -35,15 +35,17 @@ services:
   agent:
     image: snewcomer/ansible
     links:
-      - db
+      - postgres
     environment:
-      PROBE_HOST: "db"
-      PROBE_PORT: "5432"
+      PROBE_HOST: "postgres"
+      PROBE_PORT: "5433"
     command: ["probe.yml"]
 
-  db:
-    image: postgres
-    expose:
-      - "5432"
+  postgres:
+    build:
+      context: ../../
+      dockerfile: Dockerfile-psql
     env_file:
       - ../../env/app.${APP_ENV}.env
+    ports:
+      - "5433:5432"

@@ -1,0 +1,1 @@
+ALTER DATABASE ci OWNER TO bsdev
