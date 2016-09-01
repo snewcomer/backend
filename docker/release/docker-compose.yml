@@ -1,0 +1,55 @@
+version: '2'
+
+volumes:
+  webroot:
+    driver: local
+
+services:
+  app:
+    build: 
+      context: ../../
+      dockerfile: docker/release/Dockerfile
+    links:
+      - db
+    environment:
+      DJANGO_SETTINGS_MODULE: backend.settings.release
+      BSRS_DB_CI_USER: dev
+      BSRS_DB_CI_PASSWORD: puekey
+      TEST_OUTPUT_DIR: /reports
+      DATABASE_HOST: postgres
+    volumes:
+      - webroot:/var/www/backend
+    command:
+      - uwsgi
+      - "--socket /var/www/backend/backend.sock"
+      - "--chmod-socket=666"
+      - "--module backend.wsgi"
+      - "--master"
+      - "--die-on-term"
+
+  nginx:
+    build: 
+      context: .
+      dockerfile: Dockerfile.nginx
+    links:
+      - app
+    ports:
+      - "8000:8000"
+    volumes:
+      - webroot:/var/www/backend
+
+  db:
+    image: postgres
+    expose:
+      - "5432"
+    env_file:
+      - ../../env/app.${APP_ENV}.env
+
+  agent:
+    image: snewcomer/ansible
+    links:
+      - db
+    environment:
+      PROBE_HOST: "db"
+      PROBE_PORT: "5432"
+    command: ["probe.yml"]
