@@ -1,5 +1,7 @@
 # Ignore the virtual environment
 venv
+wat
+src/build
 
 # Ignore compiled Python source files
 *.pyc
