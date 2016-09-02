@@ -25,7 +25,16 @@ services:
       - "--chmod-socket=666"
       - "--module backend.wsgi"
       - "--master"
-      - "--die-on-term"
+
+   test:
+    image: snewcomer/backend-specs
+    links:
+      - nginx
+    environment:
+      URL: http://nginx:8000/todos
+      JUNIT_REPORT_PATH: /reports/acceptance.xml
+      JUNIT_REPORT_STACK: 1
+    command: --reporter mocha-jenkins-reporter - "--die-on-term"
 
   nginx:
     build: 
