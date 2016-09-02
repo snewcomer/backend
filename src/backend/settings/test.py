@@ -19,11 +19,11 @@ NOSE_ARGS = [
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'ci',
-        'USER': 'bsdev',
-        'PASSWORD': 'tango',
-        'HOST': os.environ.get('DATABASE_HOST', 'localhost'),
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': os.environ.get('MYSQL_DATABASE','todobackend'),
+        'USER': os.environ.get('MYSQL_USER','todo'),
+        'PASSWORD': os.environ.get('MYSQL_PASSWORD','password'),
+        'HOST': os.environ.get('MYSQL_HOST','localhost'),
+        'PORT': os.environ.get('MYSQL_PORT','3306'),
     }
 }

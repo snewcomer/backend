@@ -10,13 +10,12 @@ services:
       context: ../../
       dockerfile: docker/release/Dockerfile
     links:
-      - postgres
+      - db
     environment:
       DJANGO_SETTINGS_MODULE: backend.settings.release
-      BSRS_DB_CI_USER: dev
-      BSRS_DB_CI_PASSWORD: puekey
-      TEST_OUTPUT_DIR: /reports
-      DATABASE_HOST: postgres
+      MYSQL_HOST: db
+      MYSQL_USER: todo
+      MYSQL_PASSWORD: password
     volumes:
       - webroot:/var/www/backend
     command:
@@ -25,16 +24,17 @@ services:
       - "--chmod-socket=666"
       - "--module backend.wsgi"
       - "--master"
+      - "--die-on-term"
 
-   test:
+  test:
     image: snewcomer/backend-specs
     links:
       - nginx
     environment:
-      URL: http://nginx:8000/todos
+      URL: http://nginx:8000/tickets
       JUNIT_REPORT_PATH: /reports/acceptance.xml
       JUNIT_REPORT_STACK: 1
-    command: --reporter mocha-jenkins-reporter - "--die-on-term"
+    command: --reporter mocha-jenkins-reporter
 
   nginx:
     build: 
@@ -47,24 +47,21 @@ services:
     volumes:
       - webroot:/var/www/backend
 
-  postgres:
-    build:
-      context: ../../
-      dockerfile: Dockerfile-psql
+  db:
+    image: mysql:5.6
+    expose:
+      - "3306"
     environment:
-      POSTGRES_PASSWORD: tango
-      POSTGRES_USER: bsdev
-      POSTGRES_DB: ci
-    # env_file:
-    #   - ../../env/app.${APP_ENV}.env
-    # ports:
-    #   - "5434:5432"
+      MYSQL_DATABASE: backend
+      MYSQL_USER: todo
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
 
   agent:
     image: snewcomer/ansible
     links:
-      - postgres
+      - db
     environment:
-      PROBE_HOST: "postgres"
-      PROBE_PORT: "5432"
+      PROBE_HOST: "db"
+      PROBE_PORT: "3306"
     command: ["probe.yml"]

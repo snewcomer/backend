@@ -1,1 +1,301 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite name="nosetests" tests="10" errors="0" failures="0" skip="0"><testcase classname="ticket.tests.TestCreate" name="test_201" time="0.031"></testcase><testcase classname="ticket.tests.TestCreate" name="test_created" time="0.006"></testcase><testcase classname="ticket.tests.TestDeleteAllItems" name="test_all_items_were_deleted" time="0.015"></testcase><testcase classname="ticket.tests.TestDeleteAllItems" name="test_received_204_no_content_status_code" time="0.010"></testcase><testcase classname="ticket.tests.TestDeleteTicket" name="test_received_204_no_content_status_code" time="0.009"></testcase><testcase classname="ticket.tests.TestDeleteTicket" name="test_the_item_was_deleted" time="0.008"></testcase><testcase classname="ticket.tests.TestPatchTicket" name="test_item_was_updated" time="0.010"></testcase><testcase classname="ticket.tests.TestPatchTicket" name="test_received_200_ok_status_code" time="0.008"></testcase><testcase classname="ticket.tests.TestUpdateTicket" name="test_item_was_updated" time="0.012"></testcase><testcase classname="ticket.tests.TestUpdateTicket" name="test_received_200_created_status_code" time="0.008"></testcase></testsuite>
+<?xml version="1.0" encoding="UTF-8"?><testsuite name="nosetests" tests="10" errors="10" failures="0" skip="0"><testcase classname="ticket.tests.TestCreate" name="test_201" time="0.003"><error type="exceptions.ImportError" message="No module named tickets.urls"><![CDATA[Traceback (most recent call last):
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/unittest/case.py", line 322, in run
+    self.setUp()
+  File "/Users/snewcomer/Github/docker-django/backend/src/ticket/tests.py", line 16, in setUp
+    self.response = createTicket(self.client)
+  File "/Users/snewcomer/Github/docker-django/backend/src/ticket/tests.py", line 9, in createTicket
+    url = reverse('ticket-list')
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/core/urlresolvers.py", line 600, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/core/urlresolvers.py", line 448, in _reverse_with_prefix
+    self._populate()
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/core/urlresolvers.py", line 293, in _populate
+    for pattern in reversed(self.url_patterns):
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/utils/functional.py", line 33, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/core/urlresolvers.py", line 417, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/utils/functional.py", line 33, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/core/urlresolvers.py", line 410, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/Users/snewcomer/Github/docker-django/backend/src/backend/urls.py", line 22, in <module>
+    url(r'^', include('tickets.urls')),
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/conf/urls/__init__.py", line 52, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+ImportError: No module named tickets.urls
+]]></error></testcase><testcase classname="ticket.tests.TestCreate" name="test_created" time="0.001"><error type="exceptions.ImportError" message="No module named tickets.urls"><![CDATA[Traceback (most recent call last):
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/unittest/case.py", line 322, in run
+    self.setUp()
+  File "/Users/snewcomer/Github/docker-django/backend/src/ticket/tests.py", line 16, in setUp
+    self.response = createTicket(self.client)
+  File "/Users/snewcomer/Github/docker-django/backend/src/ticket/tests.py", line 9, in createTicket
+    url = reverse('ticket-list')
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/core/urlresolvers.py", line 600, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/core/urlresolvers.py", line 448, in _reverse_with_prefix
+    self._populate()
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/core/urlresolvers.py", line 293, in _populate
+    for pattern in reversed(self.url_patterns):
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/utils/functional.py", line 33, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/core/urlresolvers.py", line 417, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/utils/functional.py", line 33, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/core/urlresolvers.py", line 410, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/Users/snewcomer/Github/docker-django/backend/src/backend/urls.py", line 22, in <module>
+    url(r'^', include('tickets.urls')),
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/conf/urls/__init__.py", line 52, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+ImportError: No module named tickets.urls
+]]></error></testcase><testcase classname="ticket.tests.TestDeleteAllItems" name="test_all_items_were_deleted" time="0.002"><error type="exceptions.ImportError" message="No module named tickets.urls"><![CDATA[Traceback (most recent call last):
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/unittest/case.py", line 322, in run
+    self.setUp()
+  File "/Users/snewcomer/Github/docker-django/backend/src/ticket/tests.py", line 81, in setUp
+    createTicket(self.client)
+  File "/Users/snewcomer/Github/docker-django/backend/src/ticket/tests.py", line 9, in createTicket
+    url = reverse('ticket-list')
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/core/urlresolvers.py", line 600, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/core/urlresolvers.py", line 448, in _reverse_with_prefix
+    self._populate()
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/core/urlresolvers.py", line 293, in _populate
+    for pattern in reversed(self.url_patterns):
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/utils/functional.py", line 33, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/core/urlresolvers.py", line 417, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/utils/functional.py", line 33, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/core/urlresolvers.py", line 410, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/Users/snewcomer/Github/docker-django/backend/src/backend/urls.py", line 22, in <module>
+    url(r'^', include('tickets.urls')),
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/conf/urls/__init__.py", line 52, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+ImportError: No module named tickets.urls
+]]></error></testcase><testcase classname="ticket.tests.TestDeleteAllItems" name="test_received_204_no_content_status_code" time="0.001"><error type="exceptions.ImportError" message="No module named tickets.urls"><![CDATA[Traceback (most recent call last):
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/unittest/case.py", line 322, in run
+    self.setUp()
+  File "/Users/snewcomer/Github/docker-django/backend/src/ticket/tests.py", line 81, in setUp
+    createTicket(self.client)
+  File "/Users/snewcomer/Github/docker-django/backend/src/ticket/tests.py", line 9, in createTicket
+    url = reverse('ticket-list')
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/core/urlresolvers.py", line 600, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/core/urlresolvers.py", line 448, in _reverse_with_prefix
+    self._populate()
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/core/urlresolvers.py", line 293, in _populate
+    for pattern in reversed(self.url_patterns):
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/utils/functional.py", line 33, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/core/urlresolvers.py", line 417, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/utils/functional.py", line 33, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/core/urlresolvers.py", line 410, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/Users/snewcomer/Github/docker-django/backend/src/backend/urls.py", line 22, in <module>
+    url(r'^', include('tickets.urls')),
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/conf/urls/__init__.py", line 52, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+ImportError: No module named tickets.urls
+]]></error></testcase><testcase classname="ticket.tests.TestDeleteTicket" name="test_received_204_no_content_status_code" time="0.001"><error type="exceptions.ImportError" message="No module named tickets.urls"><![CDATA[Traceback (most recent call last):
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/unittest/case.py", line 322, in run
+    self.setUp()
+  File "/Users/snewcomer/Github/docker-django/backend/src/ticket/tests.py", line 65, in setUp
+    response = createTicket(self.client)
+  File "/Users/snewcomer/Github/docker-django/backend/src/ticket/tests.py", line 9, in createTicket
+    url = reverse('ticket-list')
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/core/urlresolvers.py", line 600, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/core/urlresolvers.py", line 448, in _reverse_with_prefix
+    self._populate()
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/core/urlresolvers.py", line 293, in _populate
+    for pattern in reversed(self.url_patterns):
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/utils/functional.py", line 33, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/core/urlresolvers.py", line 417, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/utils/functional.py", line 33, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/core/urlresolvers.py", line 410, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/Users/snewcomer/Github/docker-django/backend/src/backend/urls.py", line 22, in <module>
+    url(r'^', include('tickets.urls')),
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/conf/urls/__init__.py", line 52, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+ImportError: No module named tickets.urls
+]]></error></testcase><testcase classname="ticket.tests.TestDeleteTicket" name="test_the_item_was_deleted" time="0.001"><error type="exceptions.ImportError" message="No module named tickets.urls"><![CDATA[Traceback (most recent call last):
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/unittest/case.py", line 322, in run
+    self.setUp()
+  File "/Users/snewcomer/Github/docker-django/backend/src/ticket/tests.py", line 65, in setUp
+    response = createTicket(self.client)
+  File "/Users/snewcomer/Github/docker-django/backend/src/ticket/tests.py", line 9, in createTicket
+    url = reverse('ticket-list')
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/core/urlresolvers.py", line 600, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/core/urlresolvers.py", line 448, in _reverse_with_prefix
+    self._populate()
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/core/urlresolvers.py", line 293, in _populate
+    for pattern in reversed(self.url_patterns):
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/utils/functional.py", line 33, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/core/urlresolvers.py", line 417, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/utils/functional.py", line 33, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/core/urlresolvers.py", line 410, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/Users/snewcomer/Github/docker-django/backend/src/backend/urls.py", line 22, in <module>
+    url(r'^', include('tickets.urls')),
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/conf/urls/__init__.py", line 52, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+ImportError: No module named tickets.urls
+]]></error></testcase><testcase classname="ticket.tests.TestPatchTicket" name="test_item_was_updated" time="0.001"><error type="exceptions.ImportError" message="No module named tickets.urls"><![CDATA[Traceback (most recent call last):
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/unittest/case.py", line 322, in run
+    self.setUp()
+  File "/Users/snewcomer/Github/docker-django/backend/src/ticket/tests.py", line 48, in setUp
+    response = createTicket(self.client)
+  File "/Users/snewcomer/Github/docker-django/backend/src/ticket/tests.py", line 9, in createTicket
+    url = reverse('ticket-list')
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/core/urlresolvers.py", line 600, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/core/urlresolvers.py", line 448, in _reverse_with_prefix
+    self._populate()
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/core/urlresolvers.py", line 293, in _populate
+    for pattern in reversed(self.url_patterns):
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/utils/functional.py", line 33, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/core/urlresolvers.py", line 417, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/utils/functional.py", line 33, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/core/urlresolvers.py", line 410, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/Users/snewcomer/Github/docker-django/backend/src/backend/urls.py", line 22, in <module>
+    url(r'^', include('tickets.urls')),
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/conf/urls/__init__.py", line 52, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+ImportError: No module named tickets.urls
+]]></error></testcase><testcase classname="ticket.tests.TestPatchTicket" name="test_received_200_ok_status_code" time="0.001"><error type="exceptions.ImportError" message="No module named tickets.urls"><![CDATA[Traceback (most recent call last):
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/unittest/case.py", line 322, in run
+    self.setUp()
+  File "/Users/snewcomer/Github/docker-django/backend/src/ticket/tests.py", line 48, in setUp
+    response = createTicket(self.client)
+  File "/Users/snewcomer/Github/docker-django/backend/src/ticket/tests.py", line 9, in createTicket
+    url = reverse('ticket-list')
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/core/urlresolvers.py", line 600, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/core/urlresolvers.py", line 448, in _reverse_with_prefix
+    self._populate()
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/core/urlresolvers.py", line 293, in _populate
+    for pattern in reversed(self.url_patterns):
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/utils/functional.py", line 33, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/core/urlresolvers.py", line 417, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/utils/functional.py", line 33, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/core/urlresolvers.py", line 410, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/Users/snewcomer/Github/docker-django/backend/src/backend/urls.py", line 22, in <module>
+    url(r'^', include('tickets.urls')),
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/conf/urls/__init__.py", line 52, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+ImportError: No module named tickets.urls
+]]></error></testcase><testcase classname="ticket.tests.TestUpdateTicket" name="test_item_was_updated" time="0.001"><error type="exceptions.ImportError" message="No module named tickets.urls"><![CDATA[Traceback (most recent call last):
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/unittest/case.py", line 322, in run
+    self.setUp()
+  File "/Users/snewcomer/Github/docker-django/backend/src/ticket/tests.py", line 31, in setUp
+    response = createTicket(self.client)
+  File "/Users/snewcomer/Github/docker-django/backend/src/ticket/tests.py", line 9, in createTicket
+    url = reverse('ticket-list')
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/core/urlresolvers.py", line 600, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/core/urlresolvers.py", line 448, in _reverse_with_prefix
+    self._populate()
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/core/urlresolvers.py", line 293, in _populate
+    for pattern in reversed(self.url_patterns):
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/utils/functional.py", line 33, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/core/urlresolvers.py", line 417, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/utils/functional.py", line 33, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/core/urlresolvers.py", line 410, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/Users/snewcomer/Github/docker-django/backend/src/backend/urls.py", line 22, in <module>
+    url(r'^', include('tickets.urls')),
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/conf/urls/__init__.py", line 52, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+ImportError: No module named tickets.urls
+]]></error></testcase><testcase classname="ticket.tests.TestUpdateTicket" name="test_received_200_created_status_code" time="0.001"><error type="exceptions.ImportError" message="No module named tickets.urls"><![CDATA[Traceback (most recent call last):
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/unittest/case.py", line 322, in run
+    self.setUp()
+  File "/Users/snewcomer/Github/docker-django/backend/src/ticket/tests.py", line 31, in setUp
+    response = createTicket(self.client)
+  File "/Users/snewcomer/Github/docker-django/backend/src/ticket/tests.py", line 9, in createTicket
+    url = reverse('ticket-list')
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/core/urlresolvers.py", line 600, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/core/urlresolvers.py", line 448, in _reverse_with_prefix
+    self._populate()
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/core/urlresolvers.py", line 293, in _populate
+    for pattern in reversed(self.url_patterns):
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/utils/functional.py", line 33, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/core/urlresolvers.py", line 417, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/utils/functional.py", line 33, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/core/urlresolvers.py", line 410, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/Users/snewcomer/Github/docker-django/backend/src/backend/urls.py", line 22, in <module>
+    url(r'^', include('tickets.urls')),
+  File "/Users/snewcomer/Github/docker-django/backend/venv/lib/python2.7/site-packages/django/conf/urls/__init__.py", line 52, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+ImportError: No module named tickets.urls
+]]></error></testcase></testsuite>

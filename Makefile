@@ -65,8 +65,8 @@ build:
 	${INFO} "Build complete"
 
 release:
-	# ${INFO} "Pulling latest images..."
-	# @ docker-compose -p $(REL_PROJECT) -f $(REL_COMPOSE_FILE) pull test
+	${INFO} "Pulling latest images..."
+	@ docker-compose -p $(REL_PROJECT) -f $(REL_COMPOSE_FILE) pull test
 	${INFO} "Building images..."
 	@ docker-compose -p $(REL_PROJECT) -f $(REL_COMPOSE_FILE) build app
 	@ docker-compose -p $(REL_PROJECT) -f $(REL_COMPOSE_FILE) build --pull nginx
@@ -76,11 +76,11 @@ release:
 	@ docker-compose -p $(REL_PROJECT) -f $(REL_COMPOSE_FILE) run --rm app manage.py collectstatic --noinput
 	${INFO} "Running database migrations..."
 	@ docker-compose -p $(REL_PROJECT) -f $(REL_COMPOSE_FILE) run --rm app manage.py migrate --noinput
-	# ${INFO} "Running acceptance tests..."
-	# @ docker-compose -p $(REL_PROJECT) -f $(REL_COMPOSE_FILE) up test
-	# @ docker cp $$(docker-compose -p $(REL_PROJECT) -f $(REL_COMPOSE_FILE) ps -q test):/reports/. reports
-	# ${CHECK} $(REL_PROJECT) $(REL_COMPOSE_FILE) test
-	${INFO} "Release done"
+	${INFO} "Running acceptance tests..."
+	@ docker-compose -p $(REL_PROJECT) -f $(REL_COMPOSE_FILE) up test
+	@ docker cp $$(docker-compose -p $(REL_PROJECT) -f $(REL_COMPOSE_FILE) ps -q test):/reports/. reports
+	${CHECK} $(REL_PROJECT) $(REL_COMPOSE_FILE) test
+	${INFO} "Acceptance testing complete"
 
 clean:
 	${INFO} "Destroying development environment..."
@@ -92,7 +92,7 @@ clean:
 	${INFO} "Clean complete"
 
 tag: 
-	${INFO} "Tagging release image with $(REL_PROJECT) $(REL_COMPOSE_FILE) tags $(TAG_ARGS)..."
+	${INFO} "Tagging release image with tags $(TAG_ARGS)..."
 	@ $(foreach tag,$(TAG_ARGS), docker tag $(IMAGE_ID) $(DOCKER_REGISTRY)/$(ORG_NAME)/$(REPO_NAME):$(tag);)
 	${INFO} "Tagging complete"
 
