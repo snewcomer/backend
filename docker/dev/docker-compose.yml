@@ -45,7 +45,9 @@ services:
     build:
       context: ../../
       dockerfile: Dockerfile-psql
-    env_file:
-      - ../../env/app.${APP_ENV}.env
+    environment:
+      POSTGRES_PASSWORD: tango
+      POSTGRES_USER: bsdev
+      POSTGRES_DB: ci
     ports:
       - "5433:5432"
