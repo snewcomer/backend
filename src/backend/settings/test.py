@@ -20,7 +20,7 @@ NOSE_ARGS = [
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.environ.get('MYSQL_DATABASE','todobackend'),
+        'NAME': os.environ.get('MYSQL_DATABASE','backend'),
         'USER': os.environ.get('MYSQL_USER','todo'),
         'PASSWORD': os.environ.get('MYSQL_PASSWORD','password'),
         'HOST': os.environ.get('MYSQL_HOST','localhost'),
