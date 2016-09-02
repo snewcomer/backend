@@ -49,5 +49,5 @@ services:
       POSTGRES_PASSWORD: tango
       POSTGRES_USER: bsdev
       POSTGRES_DB: ci
-    ports:
-      - "5433:5432"
+    # ports:
+    #   - "5433:5432"
