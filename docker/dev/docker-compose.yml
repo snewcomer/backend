@@ -38,7 +38,7 @@ services:
       - postgres
     environment:
       PROBE_HOST: "postgres"
-      PROBE_PORT: "5433"
+      PROBE_PORT: "5432"
     command: ["probe.yml"]
 
   postgres:
